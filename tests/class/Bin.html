@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tests de clase Bin</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <link type="text/css" href="css/style.css" rel="stylesheet" />
+        <script type="text/javascript" src="../../js/class/Ascii-1.0.0.js"></script>
+        <script type="text/javascript" src="../../js/class/Dec-1.0.0.js"></script>
+        <script type="text/javascript" src="../../js/class/Bin-1.0.0.js"></script>
+    </head>
+    <body>
+        <h1>Tests de clase Bin</h1>
+        <script type="text/javascript">
+
+
+document.write('<table>');
+    document.write('<thead>');
+        document.write('<caption>');
+            document.write('Con caracteres erroneos.');
+        document.write('</caption>');
+    document.write('</thead>');
+    document.write('<tbody>');
+    try {
+        var objBin = new Bin('11000010110001001100011');
+
+        document.write('<tr>');
+            document.write('<th>Dec</th>');
+            document.write('<td>'+ objBin.getDec() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Oct</th>');
+            document.write('<td>'+ objBin.getOct() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Hex</th>');
+            document.write('<td>'+ objBin.getHex() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Ascii</th>');
+            document.write('<td>'+ objBin.getAscii() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Bin</th>');
+            document.write('<td>'+ objBin.getBin() +'</td>');
+        document.write('</tr>');
+    } catch (error) {
+        document.write('<tr>');
+            document.write('<td><strong>Error: </strong>'+ error +'</td>');
+        document.write('</tr>');
+    }
+    document.write('</tbody>');
+document.write('</table>');
+
+document.write('<table>');
+    document.write('<thead>');
+        document.write('<caption>');
+            document.write('001000111111100111101000');
+        document.write('</caption>');
+    document.write('</thead>');
+    document.write('<tbody>');
+    try {
+        var objBin = new Bin('001000111111100111101000');
+        
+        document.write('<tr>');
+            document.write('<th>Dec</th>');
+            document.write('<td>'+ objBin.getDec() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Oct</th>');
+            document.write('<td>'+ objBin.getOct() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Hex</th>');
+            document.write('<td>'+ objBin.getHex() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Ascii</th>');
+            document.write('<td>'+ objBin.getAscii() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Bin</th>');
+            document.write('<td>'+ objBin.getBin() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Complemento A1</th>');
+            document.write('<td>'+ objBin.complementoA1() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Complemento A2</th>');
+            document.write('<td>'+ objBin.complementoA2() +'</td>');
+        document.write('</tr>');
+    } catch (error) {
+        document.write('<tr>');
+            document.write('<td><strong>Error: </strong>'+ error +'</td>');
+        document.write('</tr>');
+    }
+    document.write('</tbody>');
+document.write('</table>');
+
+document.write('<table>');
+    document.write('<thead>');
+        document.write('<caption>');
+            document.write('Valor décimal mayor a 2xE53');
+        document.write('</caption>');
+    document.write('</thead>');
+    document.write('<tbody>');
+    try {
+        var objBin = new Bin('01001000011011110110110001100001001000000110110101110101011011100110010001101111001000010010000100100001');
+
+        document.write('<tr>');
+            document.write('<th>Dec</th>');
+            document.write('<td>'+ objBin.getDec() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Oct</th>');
+            document.write('<td>'+ objBin.getOct() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Hex</th>');
+            document.write('<td>'+ objBin.getHex() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Ascii</th>');
+            document.write('<td>'+ objBin.getAscii() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Bin</th>');
+            document.write('<td>'+ objBin.getBin() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Complemento A1</th>');
+            document.write('<td>'+ objBin.complementoA1() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Complemento A2</th>');
+            document.write('<td>'+ objBin.complementoA2() +'</td>');
+        document.write('</tr>');
+    } catch (error) {
+        document.write('<tr>');
+            document.write('<td><strong>Error: </strong>'+ error +'</td>');
+        document.write('</tr>');
+    }
+    document.write('</tbody>');
+document.write('</table>');
+        </script>
+    </body>
+</html>
