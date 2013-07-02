@@ -1,0 +1,49 @@
+* {
+    font-family: tahoma;
+    font-size: 1em;
+    padding: 1em;
+    margin: 0em;
+}
+body {
+    background-color: #F4F4F6;
+    margin-top: 0em;
+    padding-top: 0em;
+}
+h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #AF100A;
+    font-variant: small-caps;
+}
+table {
+    border-collapse: collapse;
+    border: 1px solid #CCC;
+    border-right: 0px;
+    background-color: #FFF;
+    margin: auto;
+    margin-bottom: 2em;
+    width: 70%;
+}
+table caption {
+    color: #FFF;
+    background-color: #726356;
+    font-weight: bold;
+}
+table tr th {
+    padding: 0.5em 1em;
+    text-align: center;
+    border-bottom: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+}
+table tr td {
+    padding: 0.5em 1em;
+    text-align: center;
+    border-bottom: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+}
+table .imprimible td {
+    color: #5B5046;
+    background-color: #EAE8E5;
+    border-right: 1px solid #C9C3BD;
+    border-bottom: 1px solid #C9C3BD;
+}
