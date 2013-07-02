@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ByNarii</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link href="js/libs/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+        <link href="js/libs/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+        
+        <link href="css/main.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <div class="container">
+            <table class="table table-striped" id="tablaPanel">
+                <caption><h1>ByNarii</h1></caption>
+                <thead>
+                    <tr>
+                        <th>Base <i class="icon-comment popOver" data-toggle="popover" data-placement="right" data-content="Al elegir Ascii solo permitirá ingresar caracteres cuyo valor decimal no supere el 256. Si selecciona otra base(16, 10 u 8) habilita el selector de notación científica. En todos los casos, la selección establece filtros de modo que no se permita el ingreso de caracteres fuera del dominio de la base seleccionada." title="Establece la base en que se ingresaran los valores"></i> </th>
+                        <th>Signo <i class="icon-comment popOver" data-toggle="popover" data-placement="bottom" data-content="Establece el signo(+/-) del valor ingresado. No aplica para Ascii" title="Signo"></i>
+                            <span class="popOverBaseEntera">Entero o caracteres <i class="icon-comment popOver" data-toggle="tooltip" data-placement="bottom" data-content="Este campo permite el ingreso de la parte entera de los valores(para 2.36, contendrá 2). En caso que se haya seleccionado como base Ascii permitirá ingresar las cadenas de caracteres que se deseen almacenar." title="Entero o caracteres"></i></span>
+                        </th><th>Notación <i class="icon-comment popOver" data-toggle="popover" data-placement="bottom" data-content="Este selector se habilitara, si elige como base 16, 10 u 8. Permite seleccionar la notación que debe tenerse en cuenta al interpretar los valores ingresados." title="Notación"></i>                             
+                            <span class="popOverBaseFraccion">Fracción <i class="icon-comment popOver" data-toggle="popover" data-placement="bottom" data-content="En este campo se ingresa la parte fraccionaria del valor, para 2.36 ingrese 36" title="Fracción"></i></span>
+                        </th><th>Elevado <i class="icon-comment popOver" data-toggle="popover" data-placement="bottom" data-content="En este campo se establece la base en la que se encuentra elevado el valor en punto flotante. Si bien sería posible implementar la selección del valor y base; por motivos de complejidad exigida para resolver el almacenamiento, se decidió fijar este valor a 10 en base decimal" title="Elevado"></i>
+                        </th><th>Exponente <i class="icon-comment popOver" data-toggle="popover" data-placement="bottom" data-content="Con este selector y campo, es posible seleccionar el valor del exponente a aplicar en caso de punto flotante." title="Signo y valor del exponente"></i>
+                            <span class="popOverBaseExponente">Base <i class="icon-comment popOver " data-toggle="popover" data-placement="left" data-content="Permite seleccionar la base en que se encuentra el exponente." title="Base del exponente"></i></span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <!-- BASE -->
+                            <div class="btn-group">
+                                <a class="btn dropdown-toggle btn-success" data-toggle="dropdown" href="#">
+                                    <span id="titleDropdownMenuEntero">&#160;&#160;&#160;&#160;</span>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" data-menu-callback="selectBase" data-menu-title="#titleDropdownMenuEntero">
+                                    <li><a class="optDropdownMenu" data-menu-value="ascii" data-menu-caption="Ascii" data-menu-default="on" href="#">Ascii</a></li>
+                                    <li><a class="optDropdownMenu" data-menu-value="hex" data-menu-caption="Hex" href="#">Hex</a></li>
+                                    <li><a class="optDropdownMenu" data-menu-value="dec" data-menu-caption="Dec" href="#">Dec</a></li>
+                                    <li><a class="optDropdownMenu" data-menu-value="oct" data-menu-caption="Oct" href="#">Oct</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                        <td>
+                            <!-- ENTERO -->
+                            <div class=" input-prepend">
+                                <!-- SINGNO -->
+                                <div class="btn-group">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="dropdownMenuSigno">
+                                        <span id="titleDropdownMenuSigno">&#160;&#160;</span>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" data-menu-callback="selectSigno" data-menu-title="#titleDropdownMenuSigno" id="signoDropdownMenu"><!-- divider -->
+                                        <li><a class="optDropdownMenu" data-menu-value="+" data-menu-caption="<i class='icon-plus icon-withe'></i>" data-menu-default="on" href="#"><i class="icon-plus"></i> Positivo</a></li>
+                                        <li><a class="optDropdownMenu" data-menu-value="-" data-menu-caption="<i class='icon-minus icon-withe'></i>" href="#"><i class="icon-minus"></i> Negativo</a></li>
+                                    </ul>
+                                </div>
+                                <!-- VALOR -->
+                                <input type="text" class="input-xlarge" id="entero" />
+                            </div>
+                        </td>
+                        <td>
+                            <!-- FRACCION -->
+                            <div class="input-prepend">
+                                <!-- activarlo -->
+                                <div class="btn-group">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="dropdownMenuFraccion">
+                                        <span id="titleDropdownMenuFraccion">&#160;&#160;</span>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" data-menu-callback="selectFraccion" data-menu-title="#titleDropdownMenuFraccion" id="fraccionDropdownMenu">
+                                        <li><a class="optDropdownMenu" data-menu-value="sf" data-menu-caption="<i class='icon-remove-sign'></i>" data-menu-default="on" href="#" id="optDropdownMenuSinFraccion"><i class="icon-remove-sign"></i> Punto fijo</a></li>
+                                        <li><a class="optDropdownMenu" data-menu-value="cf" data-menu-caption="<i class='icon-ok-sign'></i>" href="#"><i class="icon-ok-sign"></i> Punto flotante</a></li>
+                                    </ul>
+                                </div>
+                                <!-- valor -->
+                                <input type="text" class="input-large" id="fraccion" disabled="disabled" />
+                            </div>
+                        </td>
+                        <td>
+                            <!-- ELEVADO -->
+                            <div class="input-append">
+                                <!-- VALOR -->
+                                <input type="text" class="input-small" id="elevado" disabled="disabled" value="10" />
+                                <!-- BASE -->
+                                <div class="btn-group">
+                                    <a class="btn dropdown-toggle btn-success" data-toggle="dropdown" href="#" id="dropdownMenuElevado">
+                                        <span id="titleDropdownMenuElevado">&#160;&#160;&#160;&#160;</span>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" data-menu-callback="selectElevado" data-menu-title="#titleDropdownMenuElevado" id="elevadoDropdownMenu">
+                                        <!-- li><a class="optDropdownMenu" data-menu-value="hex" data-menu-caption="Hex" href="#">Hex</a></li -->
+                                        <li><a class="optDropdownMenu" data-menu-value="dec" data-menu-caption="Dec" data-menu-default="on" href="#">Dec</a></li>
+                                        <!-- li><a class="optDropdownMenu" data-menu-value="oct" data-menu-caption="Oct" href="#">Oct</a></li -->
+                                    </ul>
+                                </div> 
+                            </div>
+                        </td>
+                        <td>
+                            <!-- EXPONENTE -->
+                            <div class="input-prepend input-append">
+                                <!-- SINGNO -->
+                                <div class="btn-group">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="dropdownMenuSignoExponente">
+                                        <span id="titleDropdownMenuSignoExponente">&#160;&#160;</span>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" data-menu-callback="selectSignoExponente" data-menu-title="#titleDropdownMenuSignoExponente"><!-- divider -->
+                                        <li><a class="optDropdownMenu" data-menu-value="+" data-menu-caption="<i class='icon-plus icon-withe'></i>" data-menu-default="on" href="#"><i class="icon-plus"></i> Positivo</a></li>
+                                        <li><a class="optDropdownMenu" data-menu-value="-" data-menu-caption="<i class='icon-minus icon-withe'></i>" href="#"><i class="icon-minus"></i> Negativo</a></li>
+                                    </ul>
+                                </div>
+                                <!-- VALOR -->
+                                <input type="text" class="input-small" id="exponente" disabled="disabled" value="0" />
+                                <!-- BASE -->
+                                <div class="btn-group">
+                                    <a class="btn dropdown-toggle btn-success" data-toggle="dropdown" href="#" id="dropdownMenuExponente">
+                                        <span id="titleDropdownMenuExponente">&#160;&#160;&#160;&#160;</span>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" data-menu-callback="selectExponente" data-menu-title="#titleDropdownMenuExponente">
+                                        <li><a class="optDropdownMenu" data-menu-value="hex" data-menu-caption="Hex" href="#">Hex</a></li>
+                                        <li><a class="optDropdownMenu" data-menu-value="dec" data-menu-caption="Dec" data-menu-default="on" href="#">Dec</a></li>
+                                        <li><a class="optDropdownMenu" data-menu-value="oct" data-menu-caption="Oct" href="#">Oct</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Almacenamiento</th>
+                        <td>
+                            <div class="btn-group">
+                                <a class="btn dropdown-toggle btn-success btn-small" data-toggle="dropdown" href="#">
+                                    <i class="icon-th icon-white"></i>
+                                    <span id="titleDropdownMenuRepresentacion">&#160;&#160;&#160;&#160;</span>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" data-menu-callback="selectRepresentacion" data-menu-title="#titleDropdownMenuRepresentacion">
+                                    <li><a class="optDropdownMenu" data-menu-value="8" data-menu-caption="8 bits" data-menu-default="on" href="#">8 bits</a></li>
+                                    <li><a class="optDropdownMenu" data-menu-value="16" data-menu-caption="16 bits" href="#">16 bits</a></li>
+                                    <li><a class="optDropdownMenu" data-menu-value="32" data-menu-caption="32 bits <sub>Simple</sub>" href="#">32 bits <sub>Simple</sub></a></li>
+                                    <li><a class="optDropdownMenu" data-menu-value="64" data-menu-caption="64 bits <sub>Doble</sub>" href="#">64 bits <sub>Doble</sub></a></li>
+                                </ul>
+                            </div>
+                            <i class="icon-comment popOver popOverAlmacenamiento" data-toggle="popover" data-placement="right" data-content="Permite seleccionar la cantidad en bits que se deben emplear para almacenar los valores ingresados." title="Bits de almacenamiento"></i>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <span id="salidaError" class="label label-info">Iniciando aplicación ...</span>
+                            <table class="table table-bordered" id="tablaRepresentacion"></table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-striped" id="tablaSalidas">
+                <tbody>
+                    <tr>
+                        <th>Valor <i class="icon-comment popOver pull-right" data-toggle="popover" data-html="true" data-placement="top" data-content="Muestra una representación literal del valor ingresados.<br /> Ej: + 1.75<sub>dec</sub> 10<sub>dec</sub> -12<sup>dec</sup>" title="Valor literal"></i></th>
+                        <td colspan="4" id="salidaValor">....</td>
+                    </tr>
+                    <tr>
+                        <th>Ascii <i class="icon-comment popOver pull-right" data-toggle="popover" data-placement="top" data-content="Conversión del valor ingresado a Ascii. <br/><small>Solo se muestra cuando la notación es en punto fijo.</small>" data-html="true" title="Ascii"></i></th>
+                        <td colspan="4" id="salidaAscii">....</td>
+                    </tr>
+                    <tr>
+                        <th>Hexadecimal <i class="icon-comment popOver pull-right" data-toggle="popover" data-placement="top" data-content="Conversión del valor ingresado a base 16. <br/><small>Solo se muestra cuando la notación es en punto fijo.</small>" data-html="true" title="Hexadecimal"></i></th>
+                        <td colspan="4" id="salidaHex">....</td>
+                    </tr>
+                    <tr>
+                        <th>Octal <i class="icon-comment popOver pull-right" data-toggle="popover" data-placement="top" data-content="Conversión del valor ingresado a base 8. <br/><small>Solo se muestra cuando la notación es en punto fijo.</small>" data-html="true" title="Octal"></i></th>
+                        <td colspan="4" id="salidaOct">....</td>
+                    </tr>
+                    <tr>
+                        <th>Decimal <i class="icon-comment popOver pull-right" data-toggle="popover" data-placement="top" data-content="Conversión del valor ingresado a base 10. <br/><small>Solo se muestra cuando la notación es en punto fijo.</small>" data-html="true" title="Decimal"></i></th>
+                        <td colspan="4" id="salidaDec">....</td>
+                    </tr>
+                    <tr>
+                        <th>Binario <i class="icon-comment popOver pull-right" data-toggle="popover" data-placement="top" data-content="Conversión del valor ingresado a base 2. <br/><small>Solo se muestra cuando la notación es en punto fijo.</small>" data-html="true" title="Binario"></i></th>
+                        <td colspan="4" id="salidaBin">....</td>
+                    </tr>
+                    <tr>
+                        <th>A1 <i class="icon-comment popOver pull-right" data-toggle="popover" data-placement="top" data-content="Aplicación de Complemento A1 al resultado de convertir el valor ingresado a base 2. <br /> Los bits 1 son intercambiados por 0 y viceversa. <br/><small>Solo se muestra cuando la notación es en punto fijo.</small>" data-html="true" title="Complemento A1"></i></th>
+                        <td colspan="4" id="salidaComplementoA1">....</td>
+                    </tr>
+                    <tr>
+                        <th>A2 <i class="icon-comment popOver pull-right" data-toggle="popover" data-placement="top" data-content="Aplicación de Complemento A2 al resultado de convertir el valor ingresado a base 2. <br />Los bits 1 son intercambiados por 0 y viceversa, al resultado se le suma 1.  <br/><small>Solo se muestra cuando la notación es en punto fijo.</small>" data-html="true" title="Complemento A2"></i></th>
+                        <td colspan="4" id="salidaComplementoA2">....</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <small class="desarrollado">Desarrollado en Firefox 21</small>
+        
+        <script type="text/javascript" src="js/libs/jquery/jquery.js"></script>
+        <script type="text/javascript" src="js/libs/bootstrap/js/bootstrap.js"></script>
+        
+        <script type="text/javascript" src="js/class/Ascii-1.0.0.js"></script>
+        <script type="text/javascript" src="js/class/Bin-1.0.0.js"></script>
+        <script type="text/javascript" src="js/class/Dec-1.0.0.js"></script>
+        <script type="text/javascript" src="js/class/Hex-1.0.0.js"></script>
+        <script type="text/javascript" src="js/class/Oct-1.0.0.js"></script>
+        
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+</html>
