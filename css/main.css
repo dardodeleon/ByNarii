@@ -1,0 +1,111 @@
+body {
+    background-color: #FAFAFA;
+}
+
+.container {
+    margin: 2%;
+    width: 96%;
+    border: 1px solid #EFEFEF;
+    background-color: #FFF;
+}
+
+.input-append, .input-prepend {
+    margin-bottom: 0px;
+}
+
+#tablaPanel, #tablaRepresentacion, #tablaSalidas {
+    margin-bottom: 0px;
+    width: 100%;
+}
+#tablaRepresentacion {
+    max-width: 99%;
+    margin: auto;
+}
+#tablaPanel caption h1 {
+    padding: 0.3em 0em;
+}
+#tablaSalidas tbody tr th {
+    width: 120px !important;
+    border-right: 1px solid #DDD;
+}
+#tablaRepresentacion thead tr th {
+    text-align: center;
+}
+#tablaRepresentacion tbody tr td {
+    text-align: center;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.notacionSigno {
+    font-size: 1.5em;
+    vertical-align: top;
+}
+.notacionEntero, .notacionElevado {
+    font-size: 1.8em;
+    vertical-align: top;
+}
+.notacionEnteroBase {
+    font-size: 0.6em;
+    border-left: 1px solid #333;
+    border-bottom: 1px solid #333;
+    vertical-align: bottom;
+}
+.notacionElevadoBase {
+    font-size: 0.6em;
+    border-left: 1px solid #333;
+    border-bottom: 1px solid #333;
+    vertical-align: top;
+}
+
+#salidaError {
+    padding: 1em 1.2em;
+    margin: auto;
+    display: block;
+}
+
+.desarrollado {
+    text-align: center;
+    display: block;
+    color: #AAA;
+    padding-bottom: 20px;
+}
+.base {
+    border-left: 1px dotted #333;
+    border-bottom: 1px dotted #333;
+    padding: 0px 0px 2px 4px;
+    margin: 0px 0px 0px 4px;
+}
+
+.popOver {
+    cursor: pointer;
+    opacity: 0.16;
+}
+.popOver:hover {
+    opacity: 1;
+}
+th .popover .popover-content {
+    font-weight: normal;
+}
+th .popover .popover-title {
+    font-weight: bold;
+}
+.popOverBaseEntera {
+    float: right;
+    margin-right: 40px;
+}
+.popOverBaseFraccion {
+    float: right;
+    margin-right: 32px;
+}
+.popOverBaseExponente {
+    float: right;
+    margin-right: 30px;
+}
+.popOverAlmacenamiento {
+    margin-left: 20px;
+}
+
+input {
+    text-align: right !important;
+}
