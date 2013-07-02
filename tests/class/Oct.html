@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tests de clase Oct</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <link type="text/css" href="css/style.css" rel="stylesheet" />
+        <script type="text/javascript" src="../../js/class/Ascii-1.0.0.js"></script>
+        <script type="text/javascript" src="../../js/class/Dec-1.0.0.js"></script>
+        <script type="text/javascript" src="../../js/class/Bin-1.0.0.js"></script>
+        <script type="text/javascript" src="../../js/class/Oct-1.0.0.js"></script>
+    </head>
+    <body>
+        <h1>Tests de clase Oct</h1>
+        <script type="text/javascript">
+/* error */
+document.write('<table>');
+    document.write('<thead>');
+        document.write('<caption>');
+            document.write('Cadena de texto.');
+        document.write('</caption>');
+    document.write('</thead>');
+    document.write('<tbody>');
+    try {
+        var objOct = new Oct('9');
+
+        document.write('<tr>');
+            document.write('<th>Dec</th>');
+            document.write('<td>'+ objOct.getDec() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Oct</th>');
+            document.write('<td>'+ objOct.getOct() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Hex</th>');
+            document.write('<td>'+ objOct.getHex() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Ascii</th>');
+            document.write('<td>'+ objOct.getAscii() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Bin</th>');
+            document.write('<td>'+ objOct.getBin() +'</td>');
+        document.write('</tr>');
+    } catch (error) {
+        document.write('<tr>');
+            document.write('<td><strong>Error: </strong>'+ error +'</td>');
+        document.write('</tr>');
+    }
+    document.write('</tbody>');
+document.write('</table>');
+
+document.write('<table>');
+    document.write('<thead>');
+        document.write('<caption>');
+            document.write('043371350');
+        document.write('</caption>');
+    document.write('</thead>');
+    document.write('<tbody>');
+    try {
+        var objOct = new Oct( 43371350 );
+
+        document.write('<tr>');
+            document.write('<th>Dec</th>');
+            document.write('<td>'+ objOct.getDec() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Oct</th>');
+            document.write('<td>'+ objOct.getOct() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Hex</th>');
+            document.write('<td>'+ objOct.getHex() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Ascii</th>');
+            document.write('<td>'+ objOct.getAscii() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Bin</th>');
+            document.write('<td>'+ objOct.getBin() +'</td>');
+        document.write('</tr>');
+    } catch (error) {
+        document.write('<tr>');
+            document.write('<td><strong>Error: </strong>'+ error +'</td>');
+        document.write('</tr>');
+    }
+    document.write('</tbody>');
+document.write('</table>');
+
+
+document.write('<table>');
+    document.write('<thead>');
+        document.write('<caption>');
+            document.write('Valor décimal mayor a 2xE53');
+        document.write('</caption>');
+    document.write('</thead>');
+    document.write('<tbody>');
+    try {
+        var objOct = new Oct('11015715414104015516515614415704041041');
+
+        document.write('<tr>');
+            document.write('<th>Dec</th>');
+            document.write('<td>'+ objOct.getDec() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Oct</th>');
+            document.write('<td>'+ objOct.getOct() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Hex</th>');
+            document.write('<td>'+ objOct.getHex() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Ascii</th>');
+            document.write('<td>'+ objOct.getAscii() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Bin</th>');
+            document.write('<td>'+ objOct.getBin() +'</td>');
+        document.write('</tr>');
+    } catch (error) {
+        document.write('<tr>');
+            document.write('<td><strong>Error: </strong>'+ error +'</td>');
+        document.write('</tr>');
+    }
+    document.write('</tbody>');
+document.write('</table>');
+        </script>
+    </body>
+</html>
