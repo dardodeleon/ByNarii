@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tests de clase Ascii</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <link type="text/css" href="css/style.css" rel="stylesheet" />
+        <script type="text/javascript" src="../../js/class/Ascii-1.0.0.js"></script>
+    </head>
+    <body>
+        <h1>Tests de clase Ascii</h1>
+        <script type="text/javascript">
+/**
+ * Error, emplo de un caracter que exede el rango manejado por Ascii
+ */
+document.write('<table>');
+    document.write('<thead>');
+        document.write('<caption>');
+            document.write('#ùè');
+        document.write('</caption>');
+    document.write('</thead>');
+    document.write('<tbody>');
+    try {
+        objAscii = new Ascii( '#ùè' );    
+        document.write('<tr>');
+            document.write('<td>'+ objAscii.getDec() +'</td>');
+            document.write('<td>'+ objAscii.getOct() +'</td>');
+            document.write('<td>'+ objAscii.getHex() +'</td>');
+            document.write('<td>'+ objAscii.getAscii() +'</td>');
+            document.write('<td>'+ objAscii.getBin() +'</td>');
+        document.write('</tr>');
+    } catch (error) {
+        document.write('<tr>');
+            document.write('<td><strong>Error: </strong>'+ error +'</td>');
+        document.write('</tr>');
+    }
+    document.write('</tbody>');
+document.write('</table>');
+
+
+
+document.write('<table>');
+    document.write('<thead>');
+        document.write('<caption>');
+            document.write('Emplo de un caracter(no literal) que exede el rango manejado por Ascii');
+        document.write('</caption>');
+    document.write('</thead>');
+    document.write('<tbody>');
+    try {
+        objAscii = new Ascii( String.fromCharCode( 256 ) );    
+        document.write('<tr>');
+            document.write('<td>'+ objAscii.getDec() +'</td>');
+            document.write('<td>'+ objAscii.getOct() +'</td>');
+            document.write('<td>'+ objAscii.getHex() +'</td>');
+            document.write('<td>'+ objAscii.getAscii() +'</td>');
+            document.write('<td>'+ objAscii.getBin() +'</td>');
+        document.write('</tr>');
+    } catch (error) {
+        document.write('<tr>');
+            document.write('<td><strong>Error: </strong>'+ error +'</td>');
+        document.write('</tr>');
+    }
+    document.write('</tbody>');
+document.write('</table>');
+
+/**
+ * Error, emplo de un caracter que exede el rango manejado por Ascii
+ */
+document.write('<table>');
+    document.write('<thead>');
+        document.write('<caption>');
+            document.write('Emplo de un caracter(literal) que exede el rango manejado por Ascii');
+        document.write('</caption>');
+    document.write('</thead>');
+    document.write('<tbody>');
+    try {
+        objAscii = new Ascii( 'Ѐ' );
+        document.write('<tr>');
+            document.write('<td>'+ objAscii.getDec() +'</td>');
+            document.write('<td>'+ objAscii.getOct() +'</td>');
+            document.write('<td>'+ objAscii.getHex() +'</td>');
+            document.write('<td>'+ objAscii.getAscii() +'</td>');
+            document.write('<td>'+ objAscii.getBin() +'</td>');
+        document.write('</tr>');
+    } catch (error) {
+        document.write('<tr>');
+            document.write('<td><strong>Error: </strong>'+ error +'</td>');
+        document.write('</tr>');
+    }
+    document.write('</tbody>');
+document.write('</table>');
+
+/**
+ * Coleccion de caracteres manejados por la clase Ascii
+ */
+var objsAscii = null;
+document.write('<table>');
+    document.write('<thead>');
+        document.write('<caption>');
+            document.write('Caracteres cuyo valor decimal esta comprendido en el rango de 0 y 255; Ascii extendido. Los caractes imprimibles se muestran con fondo en otro color');
+        document.write('</caption>');
+    document.write('</thead>');
+    document.write('<tbody>');
+        document.write('<tr>');
+            document.write('<th>Dec</th>');
+            document.write('<th>Oct</th>');
+            document.write('<th>Hex</th>');
+            document.write('<th>Ascii</th>');
+            document.write('<th>Bin</th>');
+        document.write('</tr>');
+    for ( var i = 0; i<256; i++) {
+        objAscii = new Ascii( String.fromCharCode( i ) );
+
+        document.write('<tr class="'+ ( ( ( i >= 32 && i <= 126 ) || i == 8 || i == 13 ) ? 'imprimible' : '' ) +'">');
+            document.write('<td>'+ objAscii.getDec() +'</td>');
+            document.write('<td>'+ objAscii.getOct() +'</td>');
+            document.write('<td>'+ objAscii.getHex() +'</td>');
+            document.write('<td>'+ objAscii.getAscii() +'</td>');
+            document.write('<td>'+ objAscii.getBin() +'</td>');
+        document.write('</tr>');
+    }
+    document.write('</tbody>');
+document.write('</table>');
+
+
+document.write('<table>');
+    document.write('<thead>');
+        document.write('<caption>');
+            document.write('Cadena de texto.');
+        document.write('</caption>');
+    document.write('</thead>');
+    document.write('<tbody>');
+    try {
+        objAscii = new Ascii( 'Hola mundo!!!' );
+        document.write('<tr>');
+            document.write('<th>Dec</th>');
+            document.write('<td>'+ objAscii.getDec() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Oct</th>');
+            document.write('<td>'+ objAscii.getOct() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Hex</th>');
+            document.write('<td>'+ objAscii.getHex() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Ascii</th>');
+            document.write('<td>'+ objAscii.getAscii() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Bin</th>');
+            document.write('<td>'+ objAscii.getBin() +'</td>');
+        document.write('</tr>');
+    } catch (error) {
+        document.write('<tr>');
+            document.write('<td><strong>Error: </strong>'+ error +'</td>');
+        document.write('</tr>');
+    }
+    document.write('</tbody>');
+document.write('</table>');
+        </script>
+    </body>
+</html>
