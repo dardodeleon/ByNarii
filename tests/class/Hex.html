@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tests de clase Hex</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <link type="text/css" href="css/style.css" rel="stylesheet" />
+        <script type="text/javascript" src="../../js/class/Ascii-1.0.0.js"></script>
+        <script type="text/javascript" src="../../js/class/Bin-1.0.0.js"></script>
+        <script type="text/javascript" src="../../js/class/Hex-1.0.0.js"></script>
+    </head>
+    <body>
+        <h1>Tests de clase Hex</h1>
+        <script type="text/javascript">
+
+/* error */
+document.write('<table>');
+    document.write('<thead>');
+        document.write('<caption>');
+            document.write('Valor invalido.');
+        document.write('</caption>');
+    document.write('</thead>');
+    document.write('<tbody>');
+    try {
+        var objHex = new Hex('T');
+
+        document.write('<tr>');
+            document.write('<th>Dec</th>');
+            document.write('<td>'+ objHex.getDec() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Oct</th>');
+            document.write('<td>'+ objHex.getOct() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Hex</th>');
+            document.write('<td>'+ objHex.getHex() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Ascii</th>');
+            document.write('<td>'+ objHex.getAscii() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Bin</th>');
+            document.write('<td>'+ objHex.getBin()+'</td>');
+        document.write('</tr>');
+    } catch (error) {
+        document.write('<tr>');
+            document.write('<td><strong>Error: </strong>'+ error +'</td>');
+        document.write('</tr>');
+    }
+    document.write('</tbody>');
+document.write('</table>');
+
+document.write('<table>');
+    document.write('<thead>');
+        document.write('<caption>');
+            document.write('23f9e8');
+        document.write('</caption>');
+    document.write('</thead>');
+    document.write('<tbody>');
+    try {
+        var objHex = new Hex('23f9e8');
+                          
+        document.write('<tr>');
+            document.write('<th>Dec</th>');
+            document.write('<td>'+ objHex.getDec() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Oct</th>');
+            document.write('<td>'+ objHex.getOct() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Hex</th>');
+            document.write('<td>'+ objHex.getHex() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Ascii</th>');
+            document.write('<td>'+ objHex.getAscii() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Bin</th>');
+            document.write('<td>'+ objHex.getBin() +'</td>');
+        document.write('</tr>');
+    } catch (error) {
+        document.write('<tr>');
+            document.write('<td><strong>Error: </strong>'+ error +'</td>');
+        document.write('</tr>');
+    }
+    document.write('</tbody>');
+document.write('</table>');
+
+document.write('<table>');
+    document.write('<thead>');
+        document.write('<caption>');
+            document.write('Valor décimal mayor a 2xE53');
+        document.write('</caption>');
+    document.write('</thead>');
+    document.write('<tbody>');
+    try {
+        var objHex = new Hex('86f6c61206d756e646f212121');
+                          
+        document.write('<tr>');
+            document.write('<th>Dec</th>');
+            document.write('<td>'+ objHex.getDec() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Oct</th>');
+            document.write('<td>'+ objHex.getOct() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Hex</th>');
+            document.write('<td>'+ objHex.getHex() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Ascii</th>');
+            document.write('<td>'+ objHex.getAscii() +'</td>');
+        document.write('</tr><tr>');
+            document.write('<th>Bin</th>');
+            document.write('<td>'+ objHex.getBin() +'</td>');
+        document.write('</tr>');
+    } catch (error) {
+        document.write('<tr>');
+            document.write('<td><strong>Error: </strong>'+ error +'</td>');
+        document.write('</tr>');
+    }
+    document.write('</tbody>');
+document.write('</table>');
+        </script>
+    </body>
+</html>
